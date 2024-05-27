@@ -3,34 +3,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repo: ISim | Github Pages</title>
+    <link rel="import" href="/BoTechWeb/Layout/layout.html">
 </head>
-<style>
-    li{
-        display: inline;
-        background-color: lightgreen;
-        font-weight: bold;
-        margin: 5px;
-    }
-    ul{
-        background-color: lightgreen;    
-    }
-</style>
-<body>
-    <iframe src="/BoTechWeb/Layout/layout.html"></iframe>
-    <a href="/BoTechWeb/index.html">Back to Home</a>
-    <h3>Repo: ISim</h3>
-    <nav >
-        <ul>
-            <li><a>Home</a></li>
-            <li>Repos</li>
-            <li>Overall Status</li>
 
-        </ul>
-    </nav>
+<body>
+    <iframe id="Menu" width="100%" style="height: fit-content;" src="/BoTechWeb/Layout/layout.html"></iframe>
+    <br/>
+   
+
 </body>
 <script >
+    index();
     function index(){
-        document.getElementById('Header').innerHTML = 'Repo: ISIM';
+       /* var Menu =  document.getElementById('Menu');
+        var innerDoc = Menu.contentDocument || Menu.contentWindow.document;
+        innerDoc.getElementById('Header') = 'Repo: ISIM';
+
+        var menu = document.getElementById("Menu");
+        var header = menu.contentWindow.document.getElementsByTagName("Header");
+        header.innerText = 'Header2';
+*/
     }
 </script>    
 </html>
