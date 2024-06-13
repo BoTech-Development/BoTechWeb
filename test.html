@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html  lang="{{ page.lang | default: site.lang | default: "en" }}">
 <head>
     <title>Home|Github Pages</title>
     <!-- Required meta tags -->
@@ -12,37 +12,7 @@
 </head>
 <header>
 
-    <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="https://www.botech-computer.de/Assets/Logos/BoTechLogoNew.png"  height="48" alt="BoTech-Logo"></a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-                aria-controls="collapsibleNavId"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/BoTechWeb/index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Repos/">Repos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Repos/OverallStatus/">Current Status</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Repos/VersionHistory/">Version History</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-            </form>
-        </div>
-    </nav>
 </header>
 <body>
 
@@ -137,7 +107,7 @@
         <div class="card mb-3" style="background-color: #65B000">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="..." alt="...">
+                    <img src="" alt="...">
                 </div>
                 <div class="col-md-8" style="background-color: lightgrey">
                     <div class="card-body">
@@ -163,80 +133,29 @@
         crossorigin="anonymous"></script>
 </body>
 
-<footer style="margin-top: 20px">
-
-    <!-- Footer Menu -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="card" style="width: 18rem; background-color: #65B000">
-                    <div class="card-body">
-                        <h5 class="card-title">We: </h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="#" class="card-link">About</a></li>
-                        <li class="list-group-item"><a href="#" class="card-link">Impress</a></li>
-                        <li class="list-group-item"><a href="#" class="card-link">Private Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card" style="width: 18rem; background-color: #65B000">
-                    <div class="card-body">
-                        <h5 class="card-title">Repos: </h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="#" class="card-link">BoTech-Update</a></li>
-                        <li class="list-group-item"><a href="#" class="card-link">ISim</a></li>
-                        <li class="list-group-item"><a href="#" class="card-link">API</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card" style="width: 18rem; background-color: #65B000">
-                    <div class="card-body">
-                        <h5 class="card-title">Quick Links: </h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="#" class="card-link">New's</a></li>
-                        <li class="list-group-item"><a href="#" class="card-link"></a></li>
-                        <li class="list-group-item"><a href="#" class="card-link"></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<footer style="margin-top: 20px" id="footer">
 
 
-    <!-- Copyright Message -->
-    <div class="container" style="margin-top: 10px">
-        <p class="text-muted" style="font-size: 18px">Copyright: <a href="/BoTechWeb/index.html">BoTech</a> ©2024 All Rights Reserved.</p>
-    </div>
-    <!-- We love Cookies -->
-
-    <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
-        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
-            <div class="toast-header">
-
-                <strong class="mr-auto">🍪We Are using Cookies</strong>
-                <small>now</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                We Are using Cookies. Click <a href="./Cookies/Configure/">here</a> to configure.
-            </div>
-        </div>
-    </div>
-
-    <!-- Script to display the Cookie Message -->
-
-    <script>
-        $(document).ready(function(){
-            $('.toast').toast('show');
-        });
-    </script>
 </footer>
+
+<script>
+    fetch("./Layout/footer.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+            document.querySelector("footer").innerHTML = data;
+        });
+
+    fetch("./Layout/navBarTop.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+            document.querySelector("header").innerHTML = data;
+        });
+</script>
+
+
 </html>
+
